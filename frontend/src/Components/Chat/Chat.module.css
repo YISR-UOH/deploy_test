@@ -1,0 +1,26 @@
+.chatBox {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  width: 40dvw;
+  height: 60dvh;
+  background-color: var(--primary-color);
+  border: 1px solid var(--accent-light-hover);
+  z-index: 1000;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+}
+[data-theme="dark"] .chatBox {
+  background-color: var(--dark-primary-color);
+  border: 1px solid var(--accent-light-hover);
+}
+
+@media screen and (max-width: 768px) {
+  .chatBox {
+    width: 95dvw;
+    height: calc(100dvh - 70px);
+    bottom: 65px;
+    right: 0dvw;
+    margin: 0 10px 0 10px;
+  }
+}

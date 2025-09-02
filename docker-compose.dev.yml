@@ -1,0 +1,120 @@
+services:
+  # Base de datos PostgreSQL
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: cartocor_db
+      POSTGRES_USER: cartocor_user
+      POSTGRES_PASSWORD: cartocor_password_secure_2025
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --lc-collate=C --lc-ctype=C"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cartocor_user -d cartocor_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - cartocor-network
+
+  # Backend FastAPI
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: cartocor-backend:latest
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql+asyncpg://cartocor_user:cartocor_password_secure_2025@db:5432/cartocor_db
+      SECRET_KEY: cartocor_jwt_secret_key_very_secure_2025_please_change_in_production
+      ACCESS_TOKEN_EXPIRE_MINUTES: 240
+      ALGORITHM: HS256
+      UPLOAD_DIR: /app/uploads
+      MAX_UPLOAD_SIZE: 52428800
+      ALLOWED_EXTENSIONS: .pdf,.doc,.docx,.txt,.jpg,.jpeg,.png
+      CORS_ORIGINS: "*"
+      API_V1_STR: /api/v1
+      PROJECT_NAME: Cartocor
+      VERSION: 1.0.0
+      DESCRIPTION: Sistema de gestión de órdenes de mantenimiento industrial
+    volumes:
+      - upload_temp:/app/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/healthz"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - cartocor-network
+
+  # Frontend React
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: cartocor-frontend:latest
+    environment:
+      - VITE_API_BASE_URL=/api
+      - NODE_ENV=production
+    restart: "no"
+    volumes:
+      - frontend_dist:/usr/share/nginx/html
+    networks:
+      - cartocor-network
+
+  # Nginx Reverse Proxy
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+      args:
+        NGINX_CONF: default.conf.http
+    image: cartocor-nginx:latest
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      frontend:
+        condition: service_completed_successfully
+      backend:
+        condition: service_healthy
+    volumes:
+      - frontend_dist:/usr/share/nginx/html:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost/health",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - cartocor-network
+
+volumes:
+  postgres_data:
+    driver: local
+  upload_temp:
+    driver: local
+  frontend_dist:
+    driver: local
+
+networks:
+  cartocor-network:
+    driver: bridge
+    name: cartocor-network

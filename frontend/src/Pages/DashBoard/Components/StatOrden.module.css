@@ -1,0 +1,31 @@
+.statContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.checklistOverlay {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: var(--layer-3-light);
+  color: var(--text-primary-light);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+[data-theme="dark"] .button {
+  background-color: var(--layer-3-dark);
+  color: var(--text-primary-dark);
+}

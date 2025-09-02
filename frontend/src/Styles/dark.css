@@ -1,0 +1,50 @@
+:root {
+  --layer-1-dark: #042f4b;
+  --layer-2-dark: #073a5d;
+  --layer-3-dark: #085487;
+  --layer-4-dark: #0c5f9b;
+  --layer-5-dark: #2265a0;
+  --select-bg-dark: #2265a0;
+  --card-bg-dark: #004a7f;
+  --accent-bg-dark: #0c5f9b;
+
+  /* Colores de texto */
+  --text-primary-dark: #ffffff;
+  --text-secondary-dark: #cccccc;
+  --text-muted-dark: #999999;
+
+  /* Colores de borde */
+  --border-dark: #0854b7;
+
+  /* Colores de acento */
+  --accent-dark: #3b82f6; /* Azul profesional oscuro */
+  --accent-dark-hover: #2563eb; /* Azul más intenso para hover */
+  --accent-success-dark: #10b981; /* Verde para éxito */
+  --accent-warning-dark: #f59e0b; /* Naranja para advertencia */
+  --accent-error-dark: #ef4444; /* Rojo para error */
+
+  /* boton theme */
+  --primary-button-bg-color-dark: linear-gradient(135deg, #ffffff, #e8ebf0);
+
+  /* box-shadow*/
+  --box-shadow-dark: 5px 5px 20px #042f4b, -5px -5px 20px #073a5d;
+  --box-shadow-dark-inset: inset 4px 4px 8px #15141433,
+    inset -4px -4px 8px #042f4b;
+
+  /* Scrollbar */
+  --scrollbar-thumb-dark: #2265a0; /* Color del thumb del scrollbar */
+  --scrollbar-track-dark: #0c5f9b; /* Color del track del scrollbar */
+
+  /* disabled */
+  --primary-dark: #304061;
+}
+
+/* Estilos globales para tema oscuro */
+[data-theme="dark"] {
+  background-color: var(--layer-1-dark);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] body {
+  color: var(--text-primary);
+}

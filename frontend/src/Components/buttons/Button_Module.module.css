@@ -1,0 +1,138 @@
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+button.theme {
+  background: var(--primary-button-bg-color-light);
+  color: var(--text-primary-dark);
+  box-shadow: 4px 4px 8px rgba(148, 163, 184, 0.611),
+    -4px -4px 8px rgba(255, 255, 255, 0.4),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.2);
+}
+[data-theme="dark"] button.theme {
+  background: var(--primary-button-bg-color-dark);
+  color: var(--text-primary-light);
+  box-shadow: 4px 4px 8px rgba(148, 163, 184, 0.611),
+    -4px -4px 8px rgba(255, 255, 255, 0.4),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.2);
+}
+button.red {
+  background: #ef4444;
+  color: white;
+  background-color: linear-gradient(135deg, #ef4444, #f87171);
+  box-shadow: 4px 4px 8px rgba(239, 68, 68, 0.611),
+    -4px -4px 8px rgba(255, 255, 255, 0.4),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.2);
+}
+button.blue {
+  background: #3b82f6;
+  color: white;
+  background-color: linear-gradient(135deg, #3b82f6, #60a5fa);
+  box-shadow: 4px 4px 8px rgba(51, 129, 255, 0.611),
+    -4px -4px 8px rgba(255, 255, 255, 0.4),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.2);
+}
+button.green {
+  background: #10b981;
+  color: white;
+  background-color: linear-gradient(135deg, #10b981, #34d399);
+  box-shadow: 4px 4px 8px rgba(16, 185, 129, 0.611),
+    -4px -4px 8px rgba(255, 255, 255, 0.4),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.2);
+}
+button.yellow {
+  background: #f59e0b;
+  color: white;
+  background-color: linear-gradient(135deg, #f59e0b, #fcd34d);
+  box-shadow: 4px 4px 8px rgba(245, 158, 11, 0.611),
+    -4px -4px 8px rgba(255, 255, 255, 0.4),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+.red:hover {
+  box-shadow: 4px 4px 8px rgba(239, 68, 68, 0.15),
+    -4px -4px 8px rgba(255, 255, 255, 0.9),
+    inset 4px 4px 8px rgba(239, 68, 68, 0.4);
+}
+.blue:hover {
+  box-shadow: 4px 4px 8px rgba(148, 163, 184, 0.15),
+    -4px -4px 8px rgba(255, 255, 255, 0.9),
+    inset 4px 4px 8px rgba(61, 130, 246, 0.4);
+}
+.green:hover {
+  box-shadow: 4px 4px 8px rgba(16, 185, 129, 0.15),
+    -4px -4px 8px rgba(255, 255, 255, 0.9),
+    inset 4px 4px 8px rgba(16, 185, 129, 0.4);
+}
+.yellow:hover {
+  box-shadow: 4px 4px 8px rgba(245, 158, 11, 0.15),
+    -4px -4px 8px rgba(255, 255, 255, 0.9),
+    inset 4px 4px 8px rgba(245, 158, 11, 0.4);
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+.blue:active {
+  box-shadow: inset 2px 2px 4px rgba(61, 130, 246, 0.4),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.1);
+}
+.red:active {
+  box-shadow: inset 2px 2px 4px rgba(239, 68, 68, 0.4),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.1);
+}
+.green:active {
+  box-shadow: inset 2px 2px 4px rgba(16, 185, 129, 0.4),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.1);
+}
+.yellow:active {
+  box-shadow: inset 2px 2px 4px rgba(245, 158, 11, 0.4),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.1);
+}
+
+button:disabled {
+  background: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 4px 4px 8px rgba(148, 163, 184, 0.15),
+    -4px -4px 8px rgba(255, 255, 255, 0.9);
+}

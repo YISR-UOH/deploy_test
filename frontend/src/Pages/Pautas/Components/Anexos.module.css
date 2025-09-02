@@ -1,0 +1,118 @@
+.popupAnexos {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.popupHeader {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: 60px;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.popupHeader h2 {
+  font-size: 20px;
+  color: var(--text-primary-light);
+  font-weight: 600;
+  justify-content: center;
+}
+[data-theme="dark"] .popupHeader h2 {
+  color: var(--text-primary-dark);
+}
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--accent-error-light);
+  color: var(--text-primary-dark);
+  cursor: pointer;
+  font-size: 16px;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
+[data-theme="dark"] .closeButton {
+  background-color: var(--accent-error-dark);
+  color: var(--text-primary-dark);
+}
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 30px;
+  color: var(--text-primary-light);
+}
+[data-theme="dark"] .tabs {
+  color: var(--text-primary-dark);
+}
+.tabSelect {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  background-color: var(--layer-2-light);
+  border-radius: 4px;
+  color: var(--text-primary-light);
+  padding-right: 12px 8px;
+  width: 200px;
+  cursor: pointer;
+}
+[data-theme="dark"] .tabSelect {
+  border: 1px solid var(--border-dark);
+  color: var(--text-primary-dark);
+  background-color: var(--layer-2-dark);
+}
+.tabSelect select {
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  color: var(--text-primary-light);
+  cursor: pointer;
+}
+[data-theme="dark"] .tabSelect select {
+  color: var(--text-primary-dark);
+}
+.tabSelect::after {
+  content: "\25BC";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-primary-light);
+}
+[data-theme="dark"] .tabSelect::after {
+  color: var(--text-primary-dark);
+}
+.tabContent {
+  padding: 10px;
+  background-color: var(--layer-5-light);
+  border-radius: 20px;
+  color: var(--text-primary-light);
+  overflow-y: auto;
+  min-height: 200px;
+}
+[data-theme="dark"] .tabContent {
+  background-color: var(--layer-5-dark);
+  color: var(--text-primary-dark);
+}
+.anexoContent {
+  padding: 10px;
+  background-color: var(--layer-3-light);
+  border-radius: 10px;
+  color: var(--text-secondary-light);
+  box-shadow: var(--box-shadow-light-inset);
+  font-size: 14px;
+}
+[data-theme="dark"] .anexoContent {
+  background-color: var(--layer-3-dark);
+  color: var(--text-secondary-dark);
+  box-shadow: var(--box-shadow-dark-inset);
+}

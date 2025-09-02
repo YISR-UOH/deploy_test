@@ -1,0 +1,57 @@
+:root {
+  /* Capas de fondo (de más claro a más oscuro) */
+  --layer-1-light: #ffffff; /* Fondo base, blanco puro */
+  --layer-2-light: #f8fafc; /* Fondo secundario, blanco muy suave */
+  --layer-3-light: #f1f5f9; /* Fondo terciario, gris muy claro */
+  --layer-4-light: #e2e8f0; /* Fondo para overlays, cards */
+  --layer-5-light: #cbd5e1; /* Fondo para modals, popups */
+
+  /* Colores de borde */
+  --border-light: #e2e8f0;
+
+  /* Colores de acento (botones, links, detalles) */
+  --accent-light: #3b82f6; /* Azul profesional claro */
+  --accent-light-hover: #2563eb; /* Azul más intenso para hover */
+  --accent-success-light: #10b981; /* Verde para éxito */
+  --accent-warning-light: #f59e0b; /* Naranja para advertencia */
+  --accent-error-light: #ef4444; /* Rojo para error */
+
+  /* Cristal background */
+  --background-cristal: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Fondo blanco con opacidad */
+
+  /* Colores de texto */
+  --text-primary-light: #0f172a;
+  --text-secondary-light: #475569;
+  --text-muted-light: #060607;
+
+  /* Sombra */
+  --box-shadow-light: 0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --box-shadow-light-inset: inset 0 1px 3px 0 rgb(0 0 0 / 0.1),
+    inset 0 1px 2px -1px rgb(0 0 0 / 0.1);
+
+  /* boton theme */
+  --primary-button-bg-color-light: linear-gradient(135deg, #042f4b, #073a5d);
+
+  --scrollbar-thumb-light: #cbd5e1; /* Color del thumb del scrollbar */
+  --scrollbar-track-light: #f1f5f9; /* Color del track del scrollbar */
+
+  /* disabled */
+  --primary-light: #8790a2; /* Color para botones deshabilitados */
+}
+
+/* Estilos globales para tema claro */
+[data-theme="light"] {
+  background-color: var(--layer-1-light);
+  color: var(--text-primary-light);
+}
+
+[data-theme="light"] body {
+  background-color: var(--layer-1-light);
+  color: var(--text-primary-light);
+}

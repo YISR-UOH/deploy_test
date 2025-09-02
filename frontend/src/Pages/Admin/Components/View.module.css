@@ -1,0 +1,415 @@
+.usersContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: var(--layer-3-light);
+  gap: 10px;
+  border-radius: 10px;
+  width: calc(100% - 40px);
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--box-shadow-light);
+}
+
+[data-theme="dark"] .usersContainer {
+  background-color: var(--layer-3-dark);
+  border-color: var(--border-dark);
+  box-shadow: var(--box-shadow-dark);
+}
+
+.userCard {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--layer-4-light);
+  border-radius: 10px;
+  color: var(--text-primary-light);
+  margin-bottom: 10px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--box-shadow-light);
+}
+
+.userCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-light-inset);
+}
+
+[data-theme="dark"] .userCard {
+  background-color: var(--card-bg-dark);
+  color: var(--text-primary-dark);
+  border-color: var(--border-dark);
+  box-shadow: var(--box-shadow-dark);
+}
+
+[data-theme="dark"] .userCard:hover {
+  box-shadow: var(--box-shadow-dark-inset);
+}
+.userInfo {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.userInfo > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.userInfo > div > span:first-child {
+  font-weight: 600;
+  color: var(--text-secondary-light);
+  font-size: 0.9rem;
+}
+
+[data-theme="dark"] .userInfo > div > span:first-child {
+  color: var(--text-secondary-dark);
+}
+
+.userInfo input {
+  padding: 8px 12px;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  background-color: var(--layer-1-light);
+  color: var(--text-primary-light);
+}
+
+.userInfo input:disabled {
+  background-color: var(--layer-3-light);
+  color: var(--text-muted-light);
+  cursor: not-allowed;
+}
+
+.userInfo input:enabled {
+  border-color: var(--accent-light);
+}
+
+[data-theme="dark"] .userInfo input {
+  background-color: var(--layer-2-dark);
+  color: var(--text-primary-dark);
+  border-color: var(--border-dark);
+}
+
+[data-theme="dark"] .userInfo input:disabled {
+  background-color: var(--layer-1-dark);
+  color: var(--text-muted-dark);
+}
+
+[data-theme="dark"] .userInfo input:enabled {
+  border-color: var(--accent-color-dark);
+}
+.userActions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  gap: 8px;
+  min-width: 120px;
+}
+
+.Button {
+  background-color: var(--accent-light);
+  color: var(--text-primary-light);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  min-height: 36px;
+  width: 100px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+}
+[data-theme="dark"] .Button {
+  background-color: var(--accent-dark);
+  box-shadow: none;
+  color: var(--text-primary-dark);
+}
+
+.Button:disabled {
+  background-color: var(--primary-light);
+  color: var(--text-primary-light);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+[data-theme="dark"] .Button:disabled {
+  background-color: var(--primary-dark);
+  color: var(--text-primary-dark);
+}
+
+.Button.success {
+  background-color: var(--accent-success-light);
+}
+[data-theme="dark"] .Button.success {
+  background-color: var(--accent-success-dark);
+}
+
+.Button.warning {
+  background-color: var(--accent-warning-light);
+}
+[data-theme="dark"] .Button.warning {
+  background-color: var(--accent-warning-dark);
+}
+
+.Button.error {
+  background-color: var(--accent-error-light);
+}
+[data-theme="dark"] .Button.error {
+  background-color: var(--accent-error-dark);
+}
+
+.searchContainer {
+  position: sticky;
+  display: flex;
+  top: 0;
+  z-index: 10;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.searchInput {
+  position: relative;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  background-color: var(--layer-1-light);
+  color: var(--text-primary-light);
+  font-size: 1rem;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--accent-light);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.searchInput::placeholder {
+  color: var(--text-muted-light);
+}
+
+[data-theme="dark"] .searchInput {
+  background-color: var(--layer-2-dark);
+  color: var(--text-primary-dark);
+  border-color: var(--border-dark);
+}
+
+[data-theme="dark"] .searchInput:focus {
+  border-color: var(--accent-color-dark);
+  box-shadow: 0 0 0 3px rgba(36, 211, 251, 0.1);
+}
+
+[data-theme="dark"] .searchInput::placeholder {
+  color: var(--text-muted-dark);
+}
+
+.uploadContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 12px;
+}
+
+.visuallyHiddenInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.fileName {
+  color: var(--text-secondary-light);
+  font-size: 0.9rem;
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .fileName {
+  color: var(--text-secondary-dark);
+}
+
+.uploadStatus {
+  margin: 4px 0 8px;
+}
+
+.errorText {
+  color: var(--accent-error-light);
+  margin-right: 8px;
+}
+
+.successText {
+  color: var(--accent-success-light);
+}
+
+[data-theme="dark"] .errorText {
+  color: var(--accent-error-dark);
+}
+
+[data-theme="dark"] .successText {
+  color: var(--accent-success-dark);
+}
+
+.selectInput {
+  appearance: none;
+  padding: 8px 12px;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  background-color: var(--layer-1-light);
+  color: var(--text-primary-light);
+}
+.selectInput:disabled {
+  background-color: var(--layer-3-light);
+  color: var(--text-muted-light);
+  cursor: not-allowed;
+}
+.selectInput:enabled {
+  padding: 8px 12px;
+  border-color: var(--accent-light);
+  width: 170px;
+}
+
+.selectInput:focus {
+  outline: none;
+  border-color: var(--accent-light);
+}
+
+[data-theme="dark"] .selectInput {
+  background-color: var(--layer-2-dark);
+  color: var(--text-primary-dark);
+  border-color: var(--border-dark);
+}
+
+[data-theme="dark"] .selectInput:focus {
+  border-color: var(--accent-color-dark);
+}
+
+/* Modal styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modalContent {
+  background-color: var(--layer-1-light);
+  border-radius: 12px;
+  padding: 24px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+[data-theme="dark"] .modalContent {
+  background-color: var(--layer-1-dark);
+  border-color: var(--border-dark);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.modalContent h2 {
+  color: var(--text-primary-light);
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+[data-theme="dark"] .modalContent h2 {
+  color: var(--text-primary-dark);
+}
+
+.addUserForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formGroup label {
+  font-weight: 600;
+  color: var(--text-secondary-light);
+  font-size: 0.9rem;
+}
+
+[data-theme="dark"] .formGroup label {
+  color: var(--text-secondary-dark);
+}
+
+.formGroup input,
+.formGroup select {
+  padding: 12px;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  background-color: var(--layer-2-light);
+  color: var(--text-primary-light);
+  font-size: 1rem;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+  outline: none;
+  border-color: var(--accent-light);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+[data-theme="dark"] .formGroup input,
+[data-theme="dark"] .formGroup select {
+  background-color: var(--layer-2-dark);
+  color: var(--text-primary-dark);
+  border-color: var(--border-dark);
+}
+
+[data-theme="dark"] .formGroup input:focus,
+[data-theme="dark"] .formGroup select:focus {
+  border-color: var(--accent-color-dark);
+  box-shadow: 0 0 0 3px rgba(36, 211, 251, 0.1);
+}
+
+.formActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+}
+
+[data-theme="dark"] .formActions {
+  border-top-color: var(--border-dark);
+}
+
+.addUserButton {
+  margin-left: 12px;
+}
